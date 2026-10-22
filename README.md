@@ -22,6 +22,7 @@ npm run build      # dist/ (약 43 KB)
 - 펫은 공룡 5종(스테고·트리케라·브라키오·티라노·랩터) 중에서 고른다.
 - 그림은 GPT 이미지 모델(Codex CLI `image_generation`, ChatGPT 로그인 할당량)로 한 장의 시트를 만들고, `scripts/pixelize.mjs`로 마젠타 배경 제거·스프라이트 분리·7 px 격자 복원·16색 이하로 정리했다. 프롬프트와 원본 이미지는 `artifacts/runs/2026-10-23-dino-gen/`.
 - 특정 작가 스타일을 지정하거나 참고 그림을 입력하지 않았다. 시트를 불러오지 못하면 `src/ui/dinos.ts`의 손으로 찍은 도트로 대체한다.
+- 걷기: `scripts/walkframe.mjs`가 다리 묶음을 번갈아 1 px 들어 올린 프레임 2장(`dinos_walk_b/c.png`)을 만들고, 게임은 기본 → 뒷다리 → 기본 → 앞다리 순으로 보여 준다. GPT 이미지로도 걷기 자세를 시도했지만 몸 비율이 원본과 달라져 쓰지 않았다(`artifacts/runs/2026-10-23-dino-walk/`).
 
 ```bash
 node scripts/pixelize.mjs artifacts/runs/2026-10-23-dino-gen/dinos_sheet.png <outDir>

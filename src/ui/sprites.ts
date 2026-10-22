@@ -1,4 +1,6 @@
 import sheetUrl from '../assets/dinos.png';
+import walkBUrl from '../assets/dinos_walk_b.png';
+import walkCUrl from '../assets/dinos_walk_c.png';
 import sheetMeta from '../data/dinoSheet.json';
 import { DINOS, getDino, drawDino, type DinoId } from './dinos';
 
@@ -9,6 +11,9 @@ import { DINOS, getDino, drawDino, type DinoId } from './dinos';
 export interface SpriteRect { x: number; y: number; w: number; h: number }
 
 const RECTS = new Map<string, SpriteRect>(sheetMeta.sprites.map((s) => [s.name, { x: s.x, y: s.y, w: s.w, h: s.h }]));
+/** 0 = 기본, 1 = 뒷다리 듦, 2 = 앞다리 듦 (scripts/walkframe.mjs) */
+const URLS = [sheetUrl, walkBUrl, walkCUrl];
+const frames: HTMLImageElement[] = [];
 let sheet: HTMLImageElement | null = null;
 let ready = false;
 const listeners: (() => void)[] = [];
@@ -19,6 +24,8 @@ export function loadSprites(): void {
   sheet.onload = () => { ready = true; listeners.splice(0).forEach((f) => f()); };
   sheet.onerror = () => console.error('dino sprite sheet failed to load; using fallback pixels');
   sheet.src = sheetUrl;
+  frames[0] = sheet;
+  URLS.slice(1).forEach((u, i) => { const img = new Image(); img.src = u; frames[i + 1] = img; });
 }
 
 export function onSpritesReady(f: () => void): void {
@@ -36,6 +43,8 @@ export interface SpriteDraw {
   stretch: number;
   /** 걷기 바운스용 세로 찌그러짐(1 = 없음) */
   squash: number;
+  /** 걷기 프레임 0·1·2. 해당 프레임이 아직 없으면 0을 쓴다 */
+  frame?: number;
 }
 
 /**
@@ -57,7 +66,9 @@ export function drawSpecies(ctx: CanvasRenderingContext2D, id: string, cx: numbe
   ctx.filter = o.sick ? 'saturate(30%) brightness(0.95)' : 'none';
   ctx.translate(Math.round(cx), Math.round(baseY));
   if (o.facing === -1) ctx.scale(-1, 1);
-  ctx.drawImage(sheet, r.x, r.y, r.w, r.h, -Math.round(w / 2), -h, w, h);
+  const f = frames[o.frame ?? 0];
+  const img = f && f.complete && f.naturalWidth ? f : sheet;
+  ctx.drawImage(img, r.x, r.y, r.w, r.h, -Math.round(w / 2), -h, w, h);
   ctx.restore();
   return { w, h };
 }

@@ -29,5 +29,5 @@
 - Python 미설치 → replica 보조 스크립트 사용 불가(스킬 본체는 동작)
 
 ## 다음 작업
-- 공룡 5종: GPT 이미지(Codex CLI) → scripts/pixelize.mjs → src/assets/dinos.png. 브랜치 codex/metabolic-pet 2번째 커밋
-- 선택: GitHub Pages 배포, 걷기 애니메이션 프레임 추가 생성
+- 공룡 5종 + 4단계 걷기(scripts/walkframe.mjs) 완료, codex/metabolic-pet 3번째 커밋
+- 선택: GitHub Pages 배포(푸시 필요, 사용자 승인), main 병합 여부 결정

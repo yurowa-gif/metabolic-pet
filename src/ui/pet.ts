@@ -59,10 +59,12 @@ export function createPetView(): PetView {
     ctx.fillStyle = 'rgba(0,0,0,.18)';
     ctx.fillRect(Math.round(x - half * 0.8), GROUND - 2, Math.round(half * 1.6), 4);
 
-    // 공룡: 걸을 때 살짝 통통 튀기(세로 찌그러짐 1~4%)
-    const step = moving ? Math.abs(Math.sin(t / 160)) : 0;
+    // 공룡: 4단계 걷기(기본 → 뒷다리 → 기본 → 앞다리), 발병 시 박자 절반 + 살짝 통통 튀기
+    const beat = sick ? 360 : 180;
+    const frame = moving ? [0, 1, 0, 2][Math.floor(t / beat) % 4]! : 0;
+    const step = moving ? Math.abs(Math.sin(t / (beat * 0.9))) * 0.5 : 0;
     const stretch = state.gauges.fullness > 130 ? 1.15 : 1;
-    const size = drawSpecies(ctx, species, x, GROUND - Math.round(step * 2), { scale, facing: dir, sick, stretch, squash: 1 - step * 0.04 });
+    const size = drawSpecies(ctx, species, x, GROUND - Math.round(step * 2), { scale, facing: dir, sick, stretch, squash: 1 - step * 0.04, frame });
 
     // 이름
     ctx.fillStyle = '#fff';
