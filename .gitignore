@@ -1,0 +1,8 @@
+node_modules/
+dist/
+reference/
+artifacts/runs/**/*.png
+artifacts/runs/**/*.zip
+.env
+*.local
+.playwright-mcp/

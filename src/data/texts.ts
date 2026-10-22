@@ -1,0 +1,41 @@
+/** 화면 문구·말풍선. 전부 자체 작성(원본 문구 미사용). */
+export const TEXTS = {
+  title: '대사 펫',
+  subtitle: '20일 동안 먹이고 움직여서 펫의 검진표를 지켜라',
+  disclaimer: '이 게임은 교육용 가속 모델입니다. 실제로는 수년에 걸쳐 진행되는 변화를 20일로 압축했습니다. 의료 조언이 아니며 개인의 진단·치료에 쓸 수 없습니다.',
+  startHint: '하루에 식사 4번(아침·점심·저녁·간식)과 활동 1번을 고릅니다. 5일마다 건강검진을 받습니다.',
+  slotNames: ['아침', '점심', '저녁', '간식', '활동'],
+  skip: '거르기',
+  activities: {
+    walk: { name: '산책', emoji: '🚶', desc: '혈당·혈압을 조금 내리고 활력 +5' },
+    exercise: { name: '운동', emoji: '🏃', desc: '혈당·혈압·LDL·체중을 내리고 활력 +15' },
+    rest: { name: '휴식', emoji: '🛌', desc: '활력 +10' },
+    allnighter: { name: '밤샘', emoji: '🌙', desc: '활력 −25' },
+  },
+  medicine: { name: '약', emoji: '💊', desc: '오늘 수치를 내려 줌. 식단을 바꾸지 않으면 내일 다시 오름' },
+  bubbles: {
+    diabetesPre: '요즘 물을 많이 마시게 돼…',
+    diabetesOnset: '목이 자꾸 마르고 화장실을 자주 가',
+    hypertensionPre: '머리가 조금 무거워',
+    hypertensionOnset: '머리가 무겁고 숨이 차',
+    dyslipidemiaPre: '아무 느낌이 없는데 검진표가 이상해',
+    dyslipidemiaOnset: '겉으론 멀쩡해 보이지? 혈관 속은 달라',
+    happy: '오늘 밥 맛있었어!',
+    hungry: '배고파…',
+    tired: '너무 피곤해',
+    overfull: '배가 터질 것 같아',
+  },
+  ending: {
+    finished: '20일을 무사히 보냈습니다',
+    hospital: '병원에 입원했습니다',
+    hospitalWhy: '두 가지 이상 질환이 겹쳐 건강이 바닥났습니다',
+  },
+  sources: [
+    { name: '당뇨병 진료지침 제8판 (대한당뇨병학회, 2023)', url: 'https://www.diabetes.or.kr/bbs/?code=guide' },
+    { name: '2022 고혈압 진료지침 (대한고혈압학회)', url: 'https://www.koreanhypertension.org/reference/guide?mode=read&idno=10081' },
+    { name: '이상지질혈증 진료지침 제5판 (한국지질·동맥경화학회, 2022)', url: 'https://www.lipid.or.kr/bbs/?code=care' },
+    { name: '2025 한국인 영양소 섭취기준 (보건복지부·한국영양학회)', url: 'https://www.kns.or.kr/fileroom/fileroom_view.asp?idx=167&BoardID=Kdr' },
+    { name: '1일 영양성분 기준치 (식품 등의 표시·광고에 관한 법률 시행규칙 별표 5)', url: 'https://www.foodsafetykorea.go.kr/' },
+    { name: '식품영양성분 데이터베이스 K-FIND (식품의약품안전처)', url: 'https://various.foodsafetykorea.go.kr/nutrient/' },
+  ],
+} as const;

@@ -1,0 +1,23 @@
+feature,area,priority,original,clone,notes
+Name the pet on first run,onboarding,must,yes,yes,localStorage only
+Three gauges decay on a timer (full/affection/health),core loop,must,yes,yes,clone: 1 game-day tick (45 s) instead of 50 min
+Feed to raise fullness,core loop,must,yes,yes,clone: 12 food cards with nutrient values instead of one food
+Health drops when starving or unloved,core loop,must,yes,yes,clone: health drops when a disease is active
+Overfeeding penalty (full>100 slows and hurts),core loop,must,yes,yes,clone: excess energy -> weight -> insulin resistance
+Sickness state blocks actions and clamps stats,disease,must,yes,yes,clone: disease is deterministic from biomarkers (3 days pre-stage / 5 days onset) not 1-in-5 random
+Treatment restores health and cures,disease,must,yes,yes,clone: medicine card only works together with diet change
+Game over and restart when health hits zero,ending,must,yes,yes,clone: two diseases at once -> hospital ending
+Offline catch-up of ticks on return,persistence,should,yes,yes,same round(diff/period) formula
+Affection via petting and mini games,core loop,should,yes,yes,clone: activity cards (walk/exercise/rest/all-nighter) replace mini games
+Symptom emoji and thought bubbles,feedback,should,yes,yes,clone: symptom bubbles tied to each disease
+Mobile-first layout with bottom action bar,ui,should,yes,partial,
+Pet walks around the yard,ui,could,yes,yes,optional idle animation
+Music toggle,ui,could,yes,no,
+PWA install / offline cache,ui,could,yes,no,optional
+Clean up poop,core loop,could,yes,skip,not related to the learning goal
+Send and receive letters,social,could,yes,skip,server-side feature
+Birthday and New Year's Eve events,events,could,yes,skip,real-time calendar features do not fit a 20-minute session
+Biome selection and weather,environment,could,yes,skip,atmosphere only
+Original pixel art and sounds,assets,must,yes,skip,author's own assets; clone uses its own
+Thought bubble texts,content,could,yes,skip,author's own copy
+Download builds (itch.io etc.),distribution,could,yes,skip,distribution channel not a feature

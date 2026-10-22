@@ -1,0 +1,64 @@
+{
+  "_doc": "임상 기준값과 식이 기준치. 출처·확인일은 docs/evidence.md 참조. 게임 로직은 이 값을 그대로 사용한다.",
+  "fastingGlucose_mgdl": {
+    "source": "대한당뇨병학회 당뇨병 진료지침 제8판(2023)",
+    "normalBelow": 100,
+    "prediabetes": [100, 125],
+    "diabetesFrom": 126
+  },
+  "hba1c_pct": {
+    "source": "대한당뇨병학회 당뇨병 진료지침 제8판(2023)",
+    "prediabetes": [5.7, 6.4],
+    "diabetesFrom": 6.5
+  },
+  "bloodPressure_mmHg": {
+    "source": "대한고혈압학회 2022 고혈압 진료지침 표 1",
+    "normal": { "sysBelow": 120, "diaBelow": 80 },
+    "elevated": { "sys": [120, 129], "diaBelow": 80 },
+    "preHypertension": { "sys": [130, 139], "dia": [80, 89] },
+    "stage1": { "sys": [140, 159], "dia": [90, 99] },
+    "stage2": { "sysFrom": 160, "diaFrom": 100 }
+  },
+  "ldl_mgdl": {
+    "source": "한국지질·동맥경화학회 이상지질혈증 진료지침 제5판(2022) 표 2-1",
+    "optimalBelow": 100,
+    "normal": [100, 129],
+    "borderline": [130, 159],
+    "high": [160, 189],
+    "veryHighFrom": 190
+  },
+  "totalCholesterol_mgdl": { "source": "KSoLA 2022 표 2-1", "optimalBelow": 200, "borderline": [200, 239], "highFrom": 240 },
+  "triglyceride_mgdl": { "source": "KSoLA 2022 표 2-1", "optimalBelow": 150, "borderline": [150, 199], "high": [200, 499], "veryHighFrom": 500 },
+  "hdl_mgdl": { "source": "KSoLA 2022 표 2-1", "lowBelow": 40, "highFrom": 60 },
+  "dailyReference_label": {
+    "source": "식품 등의 표시·광고에 관한 법률 시행규칙 [별표 5] 1일 영양성분 기준치 (식약처 영양표시 가이드라인 2024.12 [참고 2])",
+    "energy_kcal": 2000,
+    "carbohydrate_g": 324,
+    "sugars_g": 100,
+    "fiber_g": 25,
+    "protein_g": 55,
+    "fat_g": 54,
+    "saturatedFat_g": 15,
+    "cholesterol_mg": 300,
+    "sodium_mg": 2000,
+    "potassium_mg": 3500
+  },
+  "kdri2025_age15to18": {
+    "source": "2025 한국인 영양소 섭취기준 요약표 (보건복지부·한국영양학회, 2025-12-31 공개)",
+    "eer_kcal": { "male": 2700, "female": 2000 },
+    "amdr_pct": { "carbohydrate": [50, 65], "protein": [10, 20], "fat": [15, 30], "saturatedFatBelow": 8, "transFatBelow": 1 },
+    "sugars": { "totalSugarsPctBelow": 20, "addedSugarsPctBelow": 10, "amdrTotalSugars": [10, 20] },
+    "sodium_mg": { "adequateIntake": 1500, "chronicDiseaseRiskReduction": 2300 },
+    "fiber_g": { "male": 25, "female": 20 },
+    "carbohydrate_g": { "ear": 100, "rni": 130 }
+  },
+  "lifestyle": {
+    "source": "KSoLA 2022 생활요법 권고; KDA 2023 운동요법",
+    "saturatedFatPctOfEnergyBelow": 7,
+    "carbohydratePctOfEnergyBelow": 65,
+    "totalSugarsPctRange": [10, 20],
+    "fatPctRange": [15, 30],
+    "weightLossPctImproves": [5, 10],
+    "aerobicMinPerWeek": 150
+  }
+}
