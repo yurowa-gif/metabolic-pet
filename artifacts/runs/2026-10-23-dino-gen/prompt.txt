@@ -1,0 +1,9 @@
+Use your built-in image generation tool to create ONE image and save it in the current working directory as dinos_sheet.png. Do not write code, do not edit any other files.
+
+Image spec:
+- A clean pixel-art sprite sheet of 5 cute chibi dinosaurs in one horizontal row, evenly spaced, same scale, all in side view facing RIGHT, standing on the same baseline.
+- Order left to right: 1) stegosaurus (sage green body, orange back plates, tail spikes), 2) triceratops (warm orange-tan body, cream frill, three white horns), 3) brachiosaurus (soft teal-blue, long neck raised, cream belly), 4) tyrannosaurus rex (olive green, big head, tiny arms, small white teeth), 5) velociraptor (dusty mauve-pink, slim, long tail, darker stripes).
+- True low-resolution pixel art: each dinosaur about 32 pixels wide on its native grid, crisp hard-edged square pixels, NO anti-aliasing, NO gradients, NO blur, NO soft shadows.
+- Style: chunky and cute, 1-pixel dark (not black) outline in a darker shade of each body color, 3-tone pastel shading per body color (highlight, base, shadow), lighter belly, single dark eye pixel with a tiny highlight, small pink cheek.
+- Background: perfectly flat solid magenta #FF00FF everywhere behind and between the dinosaurs (for chroma keying). No checkerboard, no ground, no text, no signature, no border.
+- Original design; do not imitate any specific artist.

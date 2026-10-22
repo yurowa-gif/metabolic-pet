@@ -27,6 +27,8 @@ export interface PetState {
   version: 1;
   name: string;
   sex: Sex;
+  /** 펫 공룡 종류(UI 전용). 예전 저장 파일에는 없을 수 있음 */
+  species?: string;
   day: number;
   /** 0~3 식사(아침·점심·저녁·간식), 4 활동 */
   slot: 0 | 1 | 2 | 3 | 4;

@@ -12,6 +12,7 @@
     "contrast": "node scripts/contrast.mjs replica/design/tokens.json"
   },
   "devDependencies": {
+    "pngjs": "^7.0.0",
     "typescript": "^5.9.3",
     "vite": "^6.4.4",
     "vitest": "^3.2.7"

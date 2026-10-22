@@ -30,8 +30,8 @@ export function mountApp(root: HTMLElement, storage: StorageLike, persistent: bo
     window.scrollTo(0, 0);
   }
 
-  function onStart(name: string, sex: Sex): void {
-    state = createState(name, sex, Date.now());
+  function onStart(name: string, sex: Sex, species: string): void {
+    state = createState(name, sex, Date.now(), species);
     persist();
     show('day');
   }

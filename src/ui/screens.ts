@@ -10,6 +10,7 @@ import { activityCard, foodCard, medicineCard, pickFoods, skipCard } from './car
 import { clear, h, stageClass } from './dom';
 import type { PetView } from './pet';
 import { timeline } from './timeline';
+import { SPECIES, speciesThumb } from './sprites';
 
 export interface DayHandlers {
   onMeal(id: string | null): void;
@@ -17,9 +18,21 @@ export interface DayHandlers {
   onMedicine(): void;
 }
 
-export function startScreen(saved: PetState | null, persistent: boolean, onStart: (name: string, sex: Sex) => void, onResume: () => void): HTMLElement {
+export function startScreen(saved: PetState | null, persistent: boolean, onStart: (name: string, sex: Sex, species: string) => void, onResume: () => void): HTMLElement {
   const name = h('input', { type: 'text', id: 'name', maxlength: '8', placeholder: '펫 이름 (예: 콩이)', autocomplete: 'off' }) as HTMLInputElement;
-  const form = h('form', { class: 'card', onSubmit: (e) => { e.preventDefault(); const sex = (form.querySelector('input[name=sex]:checked') as HTMLInputElement | null)?.value as Sex | undefined; onStart(name.value, sex ?? 'female'); } },
+  const picker = h('div', { class: 'dino-picker', role: 'radiogroup', 'aria-label': '공룡 고르기' },
+    ...SPECIES.map((sp, i) => h('label', { class: 'dino-option' },
+      h('input', { type: 'radio', name: 'species', value: sp.id, checked: i === 0, class: 'sr-only' }),
+      speciesThumb(sp.id),
+      h('span', {}, sp.name),
+    )),
+  );
+  const form = h('form', { class: 'card', onSubmit: (e) => {
+    e.preventDefault();
+    const pick = (n: string) => (form.querySelector(`input[name=${n}]:checked`) as HTMLInputElement | null)?.value;
+    onStart(name.value, (pick('sex') as Sex | undefined) ?? 'female', pick('species') ?? 'stego');
+  } },
+    h('div', { class: 'field' }, h('span', {}, '공룡 고르기'), picker),
     h('div', { class: 'field' }, h('label', { for: 'name' }, '펫 이름'), name),
     h('div', { class: 'field' },
       h('span', {}, '기준 열량 (2025 한국인 영양소 섭취기준, 15–18세)'),

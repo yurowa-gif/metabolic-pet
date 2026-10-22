@@ -21,7 +21,7 @@
 - artifacts/runs/2026-10-20-{rea-krepa,evidence}/
 
 ## 실제 검사
-- npx vitest run: 8 files 47 tests 통과 / npx tsc --noEmit 통과 / npx vite build 약 43 KB
+- npx vitest run: 9 files 50 tests 통과 / tsc 통과 / vite build 통과 (2026-10-23)
 - 브라우저(모바일 375×812) 수동 검증: 시작→하루 루프→45초 자동 진행→5일차 검진 팝업→발병 시 약 카드→20일 결과 화면, 콘솔 오류 0 (artifacts/runs/2026-10-20-ui-check/)
 - node scripts/contrast.mjs: 13쌍 AA 통과, krepa 문자열 스윕 0건
 
@@ -29,4 +29,5 @@
 - Python 미설치 → replica 보조 스크립트 사용 불가(스킬 본체는 동작)
 
 ## 다음 작업
-- (완료) 커밋은 사용자 요청 시. 선택: GitHub Pages 배포, Galmuri 픽셀 글꼴 self-host, PWA 캐시
+- 공룡 5종: GPT 이미지(Codex CLI) → scripts/pixelize.mjs → src/assets/dinos.png. 브랜치 codex/metabolic-pet 2번째 커밋
+- 선택: GitHub Pages 배포, 걷기 애니메이션 프레임 추가 생성

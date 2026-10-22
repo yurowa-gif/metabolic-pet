@@ -1,0 +1,76 @@
+{
+  "source": "artifacts/runs/2026-10-23-dino-gen/dinos_sheet.png",
+  "generator": "GPT image (Codex CLI image_generation)",
+  "sprites": [
+    {
+      "name": "stego",
+      "x": 1,
+      "y": 23,
+      "w": 63,
+      "h": 42,
+      "colors": 16,
+      "fit": {
+        "cx": 7.05,
+        "cy": 7.15,
+        "sx": 0.68,
+        "sy": 0.67
+      }
+    },
+    {
+      "name": "trike",
+      "x": 66,
+      "y": 22,
+      "w": 59,
+      "h": 43,
+      "colors": 15,
+      "fit": {
+        "cx": 6.95,
+        "cy": 7.05,
+        "sx": 0.64,
+        "sy": 0.62
+      }
+    },
+    {
+      "name": "brachio",
+      "x": 127,
+      "y": 0,
+      "w": 58,
+      "h": 65,
+      "colors": 15,
+      "fit": {
+        "cx": 7.35,
+        "cy": 7.2,
+        "sx": 0.63,
+        "sy": 0.66
+      }
+    },
+    {
+      "name": "trex",
+      "x": 187,
+      "y": 19,
+      "w": 57,
+      "h": 46,
+      "colors": 15,
+      "fit": {
+        "cx": 6.95,
+        "cy": 7.05,
+        "sx": 0.71,
+        "sy": 0.67
+      }
+    },
+    {
+      "name": "raptor",
+      "x": 246,
+      "y": 28,
+      "w": 60,
+      "h": 37,
+      "colors": 13,
+      "fit": {
+        "cx": 7.1,
+        "cy": 7.1,
+        "sx": 0.71,
+        "sy": 0.66
+      }
+    }
+  ]
+}

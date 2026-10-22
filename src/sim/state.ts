@@ -1,11 +1,12 @@
 import { BASELINE, INITIAL_GAUGES } from '../data/config';
 import type { PetState, Sex } from './types';
 
-export function createState(name: string, sex: Sex, now: number): PetState {
+export function createState(name: string, sex: Sex, now: number, species = 'stego'): PetState {
   return {
     version: 1,
     name: name.trim() || '펫',
     sex,
+    species,
     day: 1,
     slot: 0,
     gauges: { ...INITIAL_GAUGES },
