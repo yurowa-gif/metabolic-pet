@@ -21,13 +21,15 @@
 - artifacts/runs/2026-10-20-{rea-krepa,evidence}/
 
 ## 실제 검사
-- npx vitest run: 9 files 50 tests 통과 / tsc 통과 / vite build 통과 (2026-10-23)
-- 브라우저(모바일 375×812) 수동 검증: 시작→하루 루프→45초 자동 진행→5일차 검진 팝업→발병 시 약 카드→20일 결과 화면, 콘솔 오류 0 (artifacts/runs/2026-10-20-ui-check/)
-- node scripts/contrast.mjs: 13쌍 AA 통과, krepa 문자열 스윕 0건
+- 2026-10-25: npm test 9 files 50 tests 통과, npm run build 통과, build-sheet 무추가 실행 시 시트 픽셀 동일, 가짜 6번째 종 합치기·걷기 프레임 시험 후 원복
+- 배포: https://yurowa-gif.github.io/metabolic-pet/ HTTP 200, 모바일 화면 동작·콘솔 오류 0 (artifacts/runs/2026-10-25-deploy/)
 
 ## 문제
-- Python 미설치 → replica 보조 스크립트 사용 불가(스킬 본체는 동작)
+- Python 미설치(replica 보조 스크립트 불가)
+- YouTube 자막 요청 IP 차단(2026-10-25)
 
 ## 다음 작업
-- 공룡 5종 + 4단계 걷기(scripts/walkframe.mjs) 완료, codex/metabolic-pet 3번째 커밋
-- 선택: GitHub Pages 배포(푸시 필요, 사용자 승인), main 병합 여부 결정
+- 공개 저장소 yurowa-gif/metabolic-pet: codex/metabolic-pet(imjin 제외 재구성 df528c1), gh-pages(dist). 로컬 ref: refs/public/*, remote public
+- 공룡 10종(카르노 포함) 반영 완료·미커밋, 재배포 전. pixelize에 칸 범위 인자 추가
+- 알만툴 강좌 1~13화 노트 docs/learning/rpgmaker-mv-course-notes.md. 14~22화는 YouTube 자막 IP 차단으로 보류
+- 이후: 유니티 학습, 오픈소스 엔진 REA, PRD·계획 재작성(전투·RPG-JS)

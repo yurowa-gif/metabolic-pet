@@ -1,5 +1,5 @@
 {
-  "source": "artifacts/runs/2026-10-23-dino-gen/dinos_sheet.png",
+  "source": "merged by scripts/build-sheet.mjs",
   "generator": "GPT image (Codex CLI image_generation)",
   "sprites": [
     {
@@ -8,7 +8,7 @@
       "y": 23,
       "w": 63,
       "h": 42,
-      "colors": 16,
+      "source": "merged by scripts/build-sheet.mjs",
       "fit": {
         "cx": 7.05,
         "cy": 7.15,
@@ -22,7 +22,7 @@
       "y": 22,
       "w": 59,
       "h": 43,
-      "colors": 15,
+      "source": "merged by scripts/build-sheet.mjs",
       "fit": {
         "cx": 6.95,
         "cy": 7.05,
@@ -36,7 +36,7 @@
       "y": 0,
       "w": 58,
       "h": 65,
-      "colors": 15,
+      "source": "merged by scripts/build-sheet.mjs",
       "fit": {
         "cx": 7.35,
         "cy": 7.2,
@@ -50,7 +50,7 @@
       "y": 19,
       "w": 57,
       "h": 46,
-      "colors": 15,
+      "source": "merged by scripts/build-sheet.mjs",
       "fit": {
         "cx": 6.95,
         "cy": 7.05,
@@ -64,12 +64,82 @@
       "y": 28,
       "w": 60,
       "h": 37,
-      "colors": 13,
+      "source": "merged by scripts/build-sheet.mjs",
       "fit": {
         "cx": 7.1,
         "cy": 7.1,
         "sx": 0.71,
         "sy": 0.66
+      }
+    },
+    {
+      "name": "spino",
+      "x": 308,
+      "y": 12,
+      "w": 82,
+      "h": 53,
+      "source": "merged by scripts/build-sheet.mjs",
+      "fit": {
+        "cx": 6.6,
+        "cy": 6.75,
+        "sx": 0.62,
+        "sy": 0.67
+      }
+    },
+    {
+      "name": "ankylo",
+      "x": 392,
+      "y": 30,
+      "w": 73,
+      "h": 35,
+      "source": "merged by scripts/build-sheet.mjs",
+      "fit": {
+        "cx": 6.65,
+        "cy": 6.75,
+        "sx": 0.56,
+        "sy": 0.8
+      }
+    },
+    {
+      "name": "parasaur",
+      "x": 467,
+      "y": 7,
+      "w": 56,
+      "h": 58,
+      "source": "merged by scripts/build-sheet.mjs",
+      "fit": {
+        "cx": 6.8,
+        "cy": 6.75,
+        "sx": 0.53,
+        "sy": 0.73
+      }
+    },
+    {
+      "name": "pachy",
+      "x": 525,
+      "y": 10,
+      "w": 60,
+      "h": 55,
+      "source": "merged by scripts/build-sheet.mjs",
+      "fit": {
+        "cx": 6.55,
+        "cy": 6.75,
+        "sx": 0.61,
+        "sy": 0.67
+      }
+    },
+    {
+      "name": "carno",
+      "x": 587,
+      "y": 13,
+      "w": 75,
+      "h": 52,
+      "source": "artifacts/runs/2026-10-25-dino-carno/carno_sheet.png",
+      "fit": {
+        "cx": 13.6,
+        "cy": 13.45,
+        "sx": 0.33,
+        "sy": 0.4
       }
     }
   ]

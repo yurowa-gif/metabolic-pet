@@ -40,10 +40,18 @@ for (const sp of meta.sprites) {
   const top = yb - band + 1;
   feet.forEach(([fa, fb], i) => {
     if (i % 2 !== parity) return; // 지정한 짝·홀 묶음만 들어 올림
-    // 이 발 묶음과 이어진 다리 열 범위(띠 안에서 위쪽 행들과 겹치는 열)
-    let la = fa, lb = fb;
-    for (let y = yb - 1; y >= top; y--) for (const [ra, rb] of runs(src, y, x0, x1)) if (rb >= la && ra <= lb) { la = Math.min(la, ra); lb = Math.max(lb, rb); }
-    for (let y = top; y <= yb; y++) for (let x = la; x <= lb; x++) {
+    // 이 발 묶음과 이어진 다리 열 범위(띠 안에서 위쪽 행들과 겹치는 열).
+    // 발 폭의 2배+4px보다 넓은 줄(몸통·꼬리)을 만나면 그 행부터는 다리가 아니므로 멈춘다.
+    // (이구아노 엄지 가시처럼 다리 옆 작은 덩어리 때문에 띠가 길어져도 몸통이 함께 들리지 않게)
+    let la = fa, lb = fb, legTop = yb;
+    const maxW = 2 * (fb - fa + 1) + 4;
+    for (let y = yb - 1; y >= top; y--) {
+      const hit = runs(src, y, x0, x1).filter(([ra, rb]) => rb >= la && ra <= lb);
+      if (!hit.length || hit.some(([ra, rb]) => rb - ra + 1 > maxW)) break;
+      for (const [ra, rb] of hit) { la = Math.min(la, ra); lb = Math.max(lb, rb); }
+      legTop = y;
+    }
+    for (let y = legTop; y <= yb; y++) for (let x = la; x <= lb; x++) {
       const si = (y * src.width + x) * 4;
       const di = ((y - 1) * src.width + x) * 4;
       if (!A(src, x, y)) continue;

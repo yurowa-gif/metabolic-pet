@@ -1,0 +1,20 @@
+{
+  "source": "artifacts/runs/2026-10-25-dino-carno/carno_sheet.png",
+  "generator": "GPT image (Codex CLI image_generation)",
+  "sprites": [
+    {
+      "name": "carno",
+      "x": 1,
+      "y": 0,
+      "w": 75,
+      "h": 52,
+      "colors": 14,
+      "fit": {
+        "cx": 13.6,
+        "cy": 13.45,
+        "sx": 0.33,
+        "sy": 0.4
+      }
+    }
+  ]
+}

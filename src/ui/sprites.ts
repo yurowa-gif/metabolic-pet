@@ -2,6 +2,7 @@ import sheetUrl from '../assets/dinos.png';
 import walkBUrl from '../assets/dinos_walk_b.png';
 import walkCUrl from '../assets/dinos_walk_c.png';
 import sheetMeta from '../data/dinoSheet.json';
+import speciesList from '../data/species.json';
 import { DINOS, getDino, drawDino, type DinoId } from './dinos';
 
 /**
@@ -74,7 +75,7 @@ export function drawSpecies(ctx: CanvasRenderingContext2D, id: string, cx: numbe
 }
 
 /** 시작 화면용 작은 미리보기 캔버스 */
-export function speciesThumb(id: DinoId, size = 72): HTMLCanvasElement {
+export function speciesThumb(id: DinoId | string, size = 72): HTMLCanvasElement {
   const c = document.createElement('canvas');
   c.width = size;
   c.height = size;
@@ -91,4 +92,6 @@ export function speciesThumb(id: DinoId, size = 72): HTMLCanvasElement {
   return c;
 }
 
-export const SPECIES = DINOS.map((d) => ({ id: d.id, name: d.name }));
+/** 시작 화면 목록: species.json 순서 중 시트에 그림이 있는 종만(새 종은 시트를 다시 만들면 자동으로 나타남) */
+export const SPECIES = speciesList.species.filter((s) => RECTS.has(s.id)).map((s) => ({ id: s.id, name: s.name, full: s.full }));
+void DINOS;

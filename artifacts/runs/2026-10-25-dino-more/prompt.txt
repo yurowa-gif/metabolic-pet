@@ -1,0 +1,15 @@
+Use your built-in image generation tool to create ONE image and save it in the current working directory as dinos_more_sheet.png. Do not write code and do not edit any other files.
+
+The attached image (style_reference.png) shows 5 existing pixel-art dinosaurs. Draw 5 NEW dinosaurs in exactly the same art style, scale and pixel size so they look like part of the same set.
+
+Image spec:
+- One horizontal row of 5 cute chibi dinosaurs, evenly spaced with clear magenta gaps between them (tails must not overlap neighbors), all in side view facing RIGHT, standing on the same baseline, same height range as the reference.
+- Order left to right:
+  1) spinosaurus: long crocodile-like snout, tall rounded back sail; deep teal body, warm red-orange sail with darker stripes, cream belly, walks on two legs.
+  2) ankylosaurus: low wide armored body with rows of small spikes, bony tail club; sandy brown body, darker brown armor plates, cream belly, four legs.
+  3) parasaurolophus: long backward-curving tube crest on the head; soft lavender body, deeper purple crest and back stripes, cream belly, standing on four legs.
+  4) pachycephalosaurus: thick round dome skull with small bumps around it; warm caramel body, lighter tan dome, cream belly, two legs.
+  5) iguanodon: sturdy herbivore with a small thumb spike; moss green body, olive back stripes, cream belly, standing on four legs.
+- Same style as the reference: crisp hard-edged square pixels on a ~7px grid, NO anti-aliasing, NO gradients, NO blur, 1-pixel dark outline in a darker shade of each body color, 3-tone pastel shading, lighter belly, single dark eye pixel with a tiny white highlight, small pink cheek, small white claws.
+- Background: perfectly flat solid magenta #FF00FF everywhere behind and between the dinosaurs. No checkerboard, no ground, no shadow, no text, no signature, no border.
+- Original design; do not imitate any specific artist.

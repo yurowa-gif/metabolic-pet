@@ -1,14 +1,17 @@
 // AI 생성 도트 시트를 실제 픽셀 격자로 정리한다(무료·로컬, pngjs만 사용).
-// 사용: node scripts/pixelize.mjs <input.png> <outDir> [names=stego,trike,brachio,trex,raptor] [maxColors=16]
+// 사용: node scripts/pixelize.mjs <input.png> <outDir> [names=stego,trike,brachio,trex,raptor] [maxColors=16] [cell=5-10]
+//   cell: 도트 한 칸의 원본 픽셀 크기 탐색 범위. 한 장에 한 마리를 크게 그린 그림은 칸이 커서(예: 15-30) 직접 지정한다.
 // 1) 마젠타 배경 제거 2) 연결 요소로 스프라이트 분리 3) 스프라이트·축별로 격자(소수 셀 크기·위상) 맞춤
 // 4) 셀 안쪽 픽셀 다수결로 색 결정 5) 가까운 색 병합 6) 개별 PNG·시트 PNG·JSON 출력
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { PNG } from 'pngjs';
 
-const [input, outDir, namesArg, maxColorsArg] = process.argv.slice(2);
+const [input, outDir, namesArg, maxColorsArg, cellArg] = process.argv.slice(2);
 if (!input || !outDir) { console.error('usage: node scripts/pixelize.mjs <input.png> <outDir> [names] [maxColors]'); process.exit(2); }
 const names = (namesArg ?? 'stego,trike,brachio,trex,raptor').split(',');
 const MAX_COLORS = Number(maxColorsArg ?? 16);
+const [CELL_LO, CELL_HI] = (cellArg ?? "5-10").split("-").map(Number);
+if (!(CELL_LO > 1 && CELL_HI >= CELL_LO)) { console.error(`bad cell range: ${cellArg}`); process.exit(2); }
 const src = PNG.sync.read(readFileSync(input));
 const { width: W, height: H, data } = src;
 const I = (x, y) => (y * W + x) * 4;
@@ -61,7 +64,7 @@ const belongs = (x, y, k) => { const l = label[y * W + x]; return l >= 0 && owne
 const diff = (i, j) => Math.abs(data[i] - data[j]) + Math.abs(data[i + 1] - data[j + 1]) + Math.abs(data[i + 2] - data[j + 2]);
 
 // 3) 축별 격자 맞춤: 색 경계가 격자선(±1px)에 얼마나 몰리는지로 (셀, 위상) 선택
-function fitAxis(edges, lo = 5, hi = 10) {
+function fitAxis(edges, lo = CELL_LO, hi = CELL_HI) {
   let best = { c: (lo + hi) / 2, ph: 0, s: -1 };
   for (let c = lo; c <= hi + 0.0001; c += 0.05) {
     for (let ph = 0; ph < c; ph += 0.25) {
@@ -85,8 +88,10 @@ function processSprite(k, range) {
     const a = belongs(x, y, k), b = belongs(x, y - 1, k);
     if (a !== b || (a && diff(I(x, y), I(x, y - 1)) > 60)) ey.push(y);
   }
-  const fx = range ? fitAxis(ex, range.x[0], range.x[1]) : fitAxis(ex);
+  // 픽셀은 정사각형: 경계가 더 뚜렷한 세로축으로 셀 크기를 정하고, 가로는 같은 크기 ±0.3 안에서 위상만 맞춘다
+  // (가로 경계가 약한 시트에서 가로 셀을 4.6px처럼 잘못 잡아 그림이 옆으로 늘어나는 문제 방지)
   const fy = range ? fitAxis(ey, range.y[0], range.y[1]) : fitAxis(ey);
+  const fx = fitAxis(ex, Math.max(CELL_LO, fy.c - 0.3), Math.min(CELL_HI, fy.c + 0.3));
   // 격자 시작: bbox 왼쪽/위 이전의 첫 격자선
   const gx0 = fx.ph + Math.floor((m.x0 - fx.ph) / fx.c) * fx.c;
   const gy0 = fy.ph + Math.floor((m.y0 - fy.ph) / fy.c) * fy.c;
@@ -159,7 +164,8 @@ const sprites = major.map((_, k) => {
   const { fit, gw, gh, cells } = processSprite(k, range);
   const { pal, grid } = quantize(cells);
   // 마젠타 번짐(빨강·파랑이 초록보다 크게 높은 색) 제거
-  const fringe = new Set(pal.map((c, i) => (c[0] - c[1] > 60 && c[2] - c[1] > 60 ? i : -1)).filter((i) => i >= 0));
+  // 밝은 마젠타 계열 + 어두운 자주색(빨강·파랑이 초록보다 높고 초록이 낮은 색, 볼터치 분홍은 파랑이 낮아 제외)
+  const fringe = new Set(pal.map((c, i) => ((c[0] - c[1] > 60 && c[2] - c[1] > 60) || (c[0] - c[1] > 50 && c[2] - c[1] > 15 && c[1] < 60) ? i : -1)).filter((i) => i >= 0));
   const clean = grid.map((row) => row.map((v) => (fringe.has(v) ? -1 : v)));
   return { name: names[k] ?? `s${k}`, fit, gw, gh, pal, grid: despeckle(clean), fringe: fringe.size };
 });

@@ -1,0 +1,5 @@
+repo: https://github.com/yurowa-gif/metabolic-pet (public)
+source branch: codex/metabolic-pet = df528c1 (imjin 제외 재구성)
+gh-pages: 8a4e6fc (dist only)
+site: https://yurowa-gif.github.io/metabolic-pet/  HTTP 200, Pages build: built
+checks in clean copy: vitest 9 files 50 tests pass, npm run build exit 0

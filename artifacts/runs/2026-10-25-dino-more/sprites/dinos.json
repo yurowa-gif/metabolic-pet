@@ -1,0 +1,76 @@
+{
+  "source": "artifacts/runs/2026-10-25-dino-more/dinos_more_sheet.png",
+  "generator": "GPT image (Codex CLI image_generation)",
+  "sprites": [
+    {
+      "name": "spino",
+      "x": 1,
+      "y": 5,
+      "w": 82,
+      "h": 53,
+      "colors": 14,
+      "fit": {
+        "cx": 6.6,
+        "cy": 6.75,
+        "sx": 0.62,
+        "sy": 0.67
+      }
+    },
+    {
+      "name": "ankylo",
+      "x": 85,
+      "y": 23,
+      "w": 73,
+      "h": 35,
+      "colors": 15,
+      "fit": {
+        "cx": 6.65,
+        "cy": 6.75,
+        "sx": 0.56,
+        "sy": 0.8
+      }
+    },
+    {
+      "name": "parasaur",
+      "x": 160,
+      "y": 0,
+      "w": 56,
+      "h": 58,
+      "colors": 15,
+      "fit": {
+        "cx": 6.8,
+        "cy": 6.75,
+        "sx": 0.53,
+        "sy": 0.73
+      }
+    },
+    {
+      "name": "pachy",
+      "x": 218,
+      "y": 3,
+      "w": 60,
+      "h": 55,
+      "colors": 13,
+      "fit": {
+        "cx": 6.55,
+        "cy": 6.75,
+        "sx": 0.61,
+        "sy": 0.67
+      }
+    },
+    {
+      "name": "iguano",
+      "x": 280,
+      "y": 13,
+      "w": 75,
+      "h": 45,
+      "colors": 12,
+      "fit": {
+        "cx": 6.65,
+        "cy": 6.75,
+        "sx": 0.59,
+        "sy": 0.77
+      }
+    }
+  ]
+}

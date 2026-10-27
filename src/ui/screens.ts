@@ -21,7 +21,7 @@ export interface DayHandlers {
 export function startScreen(saved: PetState | null, persistent: boolean, onStart: (name: string, sex: Sex, species: string) => void, onResume: () => void): HTMLElement {
   const name = h('input', { type: 'text', id: 'name', maxlength: '8', placeholder: '펫 이름 (예: 콩이)', autocomplete: 'off' }) as HTMLInputElement;
   const picker = h('div', { class: 'dino-picker', role: 'radiogroup', 'aria-label': '공룡 고르기' },
-    ...SPECIES.map((sp, i) => h('label', { class: 'dino-option' },
+    ...SPECIES.map((sp, i) => h('label', { class: 'dino-option', title: sp.full },
       h('input', { type: 'radio', name: 'species', value: sp.id, checked: i === 0, class: 'sr-only' }),
       speciesThumb(sp.id),
       h('span', {}, sp.name),

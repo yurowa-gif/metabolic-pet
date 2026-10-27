@@ -1,0 +1,55 @@
+{
+  "_doc": "시작 화면에 나오는 공룡 순서와 이름. 스프라이트 시트(dinoSheet.json)에 그림이 있는 종만 화면에 나온다. 그림은 scripts/build-sheet.mjs로 합친다.",
+  "species": [
+    {
+      "id": "stego",
+      "name": "스테고",
+      "full": "스테고사우루스"
+    },
+    {
+      "id": "trike",
+      "name": "트리케라",
+      "full": "트리케라톱스"
+    },
+    {
+      "id": "brachio",
+      "name": "브라키오",
+      "full": "브라키오사우루스"
+    },
+    {
+      "id": "trex",
+      "name": "티라노",
+      "full": "티라노사우루스"
+    },
+    {
+      "id": "raptor",
+      "name": "랩터",
+      "full": "벨로키랍토르"
+    },
+    {
+      "id": "spino",
+      "name": "스피노",
+      "full": "스피노사우루스"
+    },
+    {
+      "id": "ankylo",
+      "name": "안킬로",
+      "full": "안킬로사우루스"
+    },
+    {
+      "id": "parasaur",
+      "name": "파라사우",
+      "full": "파라사우롤로푸스"
+    },
+    {
+      "id": "pachy",
+      "name": "파키",
+      "full": "파키케팔로사우루스"
+    },
+    {
+      "id": "carno",
+      "name": "카르노",
+      "full": "카르노타우루스"
+    }
+  ]
+}

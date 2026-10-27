@@ -1,0 +1,14 @@
+Use your built-in image generation tool to create ONE image and save it in the current working directory as carno_sheet.png. Do not write code and do not edit any other files.
+
+The attached image (style_reference.png) shows 9 existing pixel-art dinosaurs. Draw ONE new dinosaur in exactly the same art style, scale and pixel size so it looks like part of the same set.
+
+Dinosaur: carnotaurus, a cute chibi version.
+- Side view facing RIGHT, standing upright on its TWO hind legs, body roughly horizontal, tail held off the ground behind.
+- Signature features that must be clearly visible: two short thick horns above the eyes (like small bull horns), a short deep snout, and VERY tiny stubby arms.
+- Colors: brick-red / terracotta body, darker red-brown back stripes, cream belly and throat, ivory horns, small white claws on the feet.
+- Same height as the T. rex in the reference.
+
+Style: crisp hard-edged square pixels on the same grid as the reference, NO anti-aliasing, NO gradients, NO blur, 1-pixel dark outline in a darker shade of the body color, 3-tone pastel shading, lighter belly, single dark eye pixel with a tiny white highlight, small pink cheek.
+
+Background: perfectly flat solid magenta #FF00FF everywhere. Only this one dinosaur, centered. No checkerboard, no ground, no shadow, no text, no signature, no border.
+Original design; do not imitate any specific artist.
